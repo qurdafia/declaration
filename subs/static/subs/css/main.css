@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i&display=swap');
+@font-face {
+  font-family: 'password';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/media/fonts/password.ttf');
+}
+
+body {
+  background: url('/media/bg-ctc-declaration-tile.png');
+  background-size: 250px;
+  background-repeat: repeat;
+  /*background-color: #fdecd0;*/
+}
+.container {
+  max-width: 600px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #eee;
+  /*background-color: rgba(238, 238, 238, .8);*/
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  /*font-family: Open Sans;*/
+  /*font-weight: lighter !important;*/
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+@media (max-width: 600px) {
+  .container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+.navbar {
+  border-top: 5px solid #2e2e2e;
+  background-color: #fff;
+}
+.navbar-brand {
+  padding-left: 15px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.navbar-brand img {
+  width: 120px;
+}
+
+input#id_username, input#id_nric_number {
+  font-family: 'password';
+}
+
+input#profile-search {
+  font-size: 13px;
+  padding: 8px;
+}
+
+input#id_is_quarantined, input#id_is_contacted, input#id_has_travelled, input#id_is_unwell, input#id_acknowledge {
+  width: inherit !important;
+}
+
+#profile-photo {
+  width: 200px;
+}
+
+#profile-photo-tn {
+  width: 100%;
+}
+
+#profiles-card {
+  font-size: 10px;
+  background-color: #fff;
+  display: inline-block;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 5px #ddd;
+  width: 32%;
+  height: 200px;
+  padding: 15px;
+  vertical-align: top;
+}
+#guest-registration label {
+  text-transform: uppercase;
+}
+#guest-registration input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  /*border: 1px solid #222;*/
+}
+#reg-submit, #profile-search-button {
+  background-color: #f33;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+#reg-submit:hover {
+  background-color: #f00;
+}
+#vms-login-button {
+  background-color: #f33;
+  color: #fff;
+  border: 0;
+}
+#vms-login-button:hover {
+  background-color: #f00;
+}
+#vms-description {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+#auth-bar {
+  font-size: 10px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+#breadcrumbs-bar {
+  font-size: 10px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+#breadcrumbs-bar a, #auth-bar a {
+  color: #f33;
+}
+
+#webcam-open-button {
+  border-radius: 0 !important;
+}
+#open-web-cam {
+  background-color: #222;
+  color: #fff;
+  padding: 10px;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 600;
+}
+.messages {
+  padding-inline-start: 0 !important;
+}
+#reg-message-success {
+  list-style-type: none;
+  border: 1px solid #f33;
+  color: #f33;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.access-camera {
+  display: flex;
+
+}
+.btn-info {
+  border: none;
+}
+.pdpa {
+  display: flex;
+}
+.pdpa #id_is_pdpa_checked {
+  width: auto;
+}
+
+/* NRIC Validation */
+
+#id_nric_number {
+
+}
+.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.validateicon {
+   display: inline-block;
+}
+.validateicon::after {
+  content: "✕";
+  color: #ff0000;
+
+}
+.valid::after {
+  content: "✓";
+  color: #00ff00;
+}
+
+/* Visit history */
+
+span.visit-log {
+  display: block;
+  border-top: 1px dotted #ccc;
+  padding-top: 10px;
+}
+
+/* Additional Styling for registration */
+
+input {
+  border-radius: 0 !important;
+}
+.access-camera-mobile {
+  display: inline-block;
+}
+.access-camera-mobile input[type=file] {
+  display: inherit;
+}
+#camera-mobile {
+  display: flex;
+}
+#camera-glyph {
+  padding-top: 12px;
+}
+
+/* .access-camera-mobile {
+  display: none;
+} */
+
+/* iPad */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)  {
+  .access-camera-mobile {
+    display: inherit; !important;
+  }
+  #webcam-open-button {
+    display: none;
+  }
+  /* .access-camera, #access-camera-desktop {
+    display: none;
+  } */
+}
+
+/* iPhone X */
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3) {
+  .access-camera-mobile {
+    display: inherit; !important;
+  }
+  #webcam-open-button {
+    display: none;
+  }
+  /* .access-camera, #access-camera-desktop {
+    display: none;
+  } */
+}
+
+/* iPhone + sizes */
+@media only screen
+and (min-device-width : 414px)
+and (max-device-width : 736px) {
+  .access-camera-mobile {
+    display: inherit; !important;
+  }
+  #webcam-open-button {
+    display: none;
+  }
+  /* .access-camera, #access-camera-desktop {
+    display: none;
+  } */
+}
+
+/* iPhone 6, 7, 8 */
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+  .access-camera-mobile {
+    display: inherit; !important;
+  }
+  #webcam-open-button {
+    display: none;
+  }
+  /* .access-camera, #access-camera-desktop {
+    display: none;
+  } */
+}
+
+/* Pagination */
+
+.pagination>.active>span, .pagination>.active>span:hover {
+  background-color: #f33;
+  border: 1px solid #f33;
+}
+
+.pagination>li>a, .pagination>li>a:hover {
+  color: #f33;
+}
+
+
+
+/* Form Test Styling */
+
+#regForm {
+  background-color: #ffffff;
+  margin: 20px auto;
+  padding: 40px;
+  min-width: 300px;
+}
+
+h1 {
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  /*font-family: Raleway;*/
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #007dc6;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+#subBtn {
+  display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #007dc6;
+}

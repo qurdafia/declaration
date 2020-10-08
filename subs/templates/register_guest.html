@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <h1>CTC Health Declartion Form</h1>
+  <!-- Form Sample -->
+  <form id="regForm" action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="tab">
+      <h3>Personal Information</h3>
+      <p>
+        Full Name:<br />
+        {{ form.name }}
+      </p>
+      <p>
+        Mobile Number: <br />
+        {{ form.mobile_number }}
+      </p>
+      <p>
+        Name of the Company (for visitors)<br />
+        {{ form.company }}
+      </p>
+      <p>
+        Indicate Purpose (for visitors)<br />
+        <input type="text" name="purpose" maxlength="255" required id="id_purpose">
+      </p>
+      <p>
+        Visitor's Pass Number (for visitors)<br />
+        {{ form.visit_pass_number }}
+      </p>
+      <p>
+        Temperature Recorded<br />
+        {{ form.temperature }}
+      </p>
+      <p>
+        Time of Temperature Screening<br />
+        {{ form.time_scanned }}
+      </p>
+    </div>
+    <div class="tab">
+      <h3>Health Well-being and Recent Travel History</h3><br />
+      <p>
+        Are you currently serving quarantine order?
+        {{ form.is_quarantined }}
+      </p>
+      <p>
+        Have you had contact with COVID19 patient?
+        {{ form.is_contacted }}
+      </p>
+      <p>
+        Have you travelled?
+        {{ form.has_travelled }}
+      </p>
+      <p>
+        Are you feeling unwell?
+        {{ form.is_unwell }}
+      </p>
+    </div>
+    <div class="tab">
+      <h3>Acknowledgement</h3><br />
+      <p>
+        Acknowledge
+        {{ form.acknowledge }}
+      </p>
+      <p>
+        Date<br />
+        <input type="date" name="reg_date" maxlength="255" required id="id_reg_date"><br /><br />
+      </p>
+    </div>
+    <div style="overflow:auto;">
+      <div style="float:right;">
+        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        <input type="submit" id="subBtn" value="Submit">
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+      <span class="step"></span>
+      <span class="step"></span>
+      <span class="step"></span>
+    </div>
+
+  </form>
+
+  <!-- End Form Sample-->
+
+
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li id="reg-message-success" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+
+
+  {% load static %}
+  <script src="{% static 'subs/js/registration.js' %}"></script>
+{% endblock %}
