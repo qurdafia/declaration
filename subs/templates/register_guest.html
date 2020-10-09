@@ -3,29 +3,29 @@
 
   <h1>CTC Health Declartion Form</h1>
   <!-- Form Sample -->
-  <form id="regForm" action="" method="post" enctype="multipart/form-data">
+  <form id="regForm" action="" method="post" enctype="multipart/form-data" autocomplete="on">
     {% csrf_token %}
     <div class="tab">
       <h3>Personal Information</h3>
       <p>
         Full Name:<br />
-        {{ form.name }}
+        <input type="text" name="name" maxlength="255" required id="id_name" autocomplete="name">
       </p>
       <p>
         Mobile Number: <br />
-        {{ form.mobile_number }}
+        <input type="text" name="mobile_number" maxlength="255" required id="id_mobile_number" autocomplete="mobile_number">
       </p>
       <p>
-        Name of the Company (for visitors)<br />
-        {{ form.company }}
+        Name of the Company (required for visitors, N/A for staff)<br />
+        <input type="text" name="company" maxlength="255" id="id_company" autocomplete="company" value="N/A">
       </p>
       <p>
-        Indicate Purpose (for visitors)<br />
-        <input type="text" name="purpose" maxlength="255" required id="id_purpose">
+        Indicate Purpose (required for visitors, N/A for staff)<br />
+        <input type="text" name="purpose" maxlength="255" id="id_purpose" autocomplete="purpose" value="N/A">
       </p>
       <p>
-        Visitor's Pass Number (for visitors)<br />
-        {{ form.visit_pass_number }}
+        Visitor's Pass Number (required for visitors, N/A for staff)<br />
+        <input type="text" name="visit_pass_number" maxlength="255" id="id_visit_pass_number" autocomplete="visit_pass_number" value="N/A">
       </p>
       <p>
         Temperature Recorded<br />
@@ -33,7 +33,7 @@
       </p>
       <p>
         Time of Temperature Screening<br />
-        {{ form.time_scanned }}
+        <input type="time" name="time_scanned" maxlength="255" id="id_time_scanned" autocomplete="time_scanned">
       </p>
     </div>
     <div class="tab">
@@ -95,5 +95,18 @@
 
 
   {% load static %}
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
   <script src="{% static 'subs/js/registration.js' %}"></script>
+  <script src='https://cdn.jsdelivr.net/gh/FThompson/FormPersistence.js@2.0.6/form-persistence.min.js'></script>
+  <script>
+    let newform = document.getElementById('regForm');
+    FormPersistence.persist(newform);
+  </script>
+  <script>
+    $(document).ready(function() {
+        $("#id_company").val("N/A");
+        $("#id_purpose").val("N/A");
+        $("#id_visit_pass_number").val("N/A");
+    });
+  </script>
 {% endblock %}
