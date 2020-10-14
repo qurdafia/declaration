@@ -1,4 +1,7 @@
 asgiref==3.2.10
 Django==3.1.2
+mysqlclient @ file:///C:/Users/Administrator/Documents/Apps/declaration/mysqlclient-1.4.6-cp39-cp39-win_amd64.whl
+protobuf==3.13.0
 pytz==2020.1
-sqlparse==0.4.0
+six==1.15.0
+sqlparse==0.4.1

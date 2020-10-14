@@ -12,7 +12,7 @@ def register_guest(request):
         if form.is_valid():
             # cleaned = form.cleaned_data
             form.save()
-            messages.success(request, 'Guest is registered successfully!')
+            # messages.success(request, 'Guest is registered successfully!')
             return redirect('thank_you')
     else:
         form = SubForm()

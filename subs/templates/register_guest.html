@@ -1,69 +1,68 @@
 {% extends 'base.html' %}
 {% block content %}
-
-  <h1>CTC Health Declartion Form</h1>
   <!-- Form Sample -->
   <form id="regForm" action="" method="post" enctype="multipart/form-data" autocomplete="on">
     {% csrf_token %}
+    <h2>CTC Health Declartion Form</h2>
     <div class="tab">
       <h3>Personal Information</h3>
       <p>
-        Full Name:<br />
+        <strong>Full Name:</strong><span id="manda">&nbsp;*</span><br />
         <input type="text" name="name" maxlength="255" required id="id_name" autocomplete="name">
       </p>
       <p>
-        Mobile Number: <br />
+        <strong>Mobile Number:</strong><span id="manda">&nbsp;*</span><br />
         <input type="text" name="mobile_number" maxlength="255" required id="id_mobile_number" autocomplete="mobile_number">
       </p>
       <p>
-        Name of the Company (required for visitors, N/A for staff)<br />
+        <strong>Name of the Company:</strong> (required for visitors, N/A for staff)<span id="manda">&nbsp;*</span><br />
         <input type="text" name="company" maxlength="255" id="id_company" autocomplete="company" value="N/A">
       </p>
       <p>
-        Indicate Purpose (required for visitors, N/A for staff)<br />
+        <strong>Please indicate purpose of visit to the office:</strong> (required for visitors, N/A for staff)<span id="manda">&nbsp;*</span><br />
         <input type="text" name="purpose" maxlength="255" id="id_purpose" autocomplete="purpose" value="N/A">
       </p>
       <p>
-        Visitor's Pass Number (required for visitors, N/A for staff)<br />
+        <strong>Visitor's Pass Number:</strong> (required for visitors, N/A for staff)<span id="manda">&nbsp;*</span><br />
         <input type="text" name="visit_pass_number" maxlength="255" id="id_visit_pass_number" autocomplete="visit_pass_number" value="N/A">
       </p>
       <p>
-        Temperature Recorded<br />
+        <strong>Temperature Recorded:</strong><span id="manda">&nbsp;*</span><br />
+        (Kindly note that if you are unwell and/ or if your temperature is 37.4 Degree Celsius and above, you will be refused entry to CTC workplace premises.)<br />
         {{ form.temperature }}
       </p>
       <p>
-        Time of Temperature Screening<br />
+        <strong>Time of Temperature Screening:</strong><span id="manda">&nbsp;*</span><br />
         <input type="time" name="time_scanned" maxlength="255" id="id_time_scanned" autocomplete="time_scanned">
       </p>
     </div>
     <div class="tab">
       <h3>Health Well-being and Recent Travel History</h3><br />
       <p>
-        Are you currently serving quarantine order?
-        {{ form.is_quarantined }}
+        <strong>Are you currently serving Quarantine Order (QO), Leave of Absence (LOA) or Stay-Home Notice (SHN)?</strong><span id="manda">&nbsp;*</span><br /><br />
+        {{ form.is_quarantined }}<br /><br />
       </p>
       <p>
-        Have you had contact with COVID19 patient?
-        {{ form.is_contacted }}
+        <strong>Within the last 14 days, have you had contact with a COVID-19 confirmed case or suspect case, or a person issued Quarantine Order (QO) / Leave of Absence (LOA) / Stay-Home Notice (SHN)?</strong><span id="manda">&nbsp;*</span><br /><br />
+        {{ form.is_contacted }}<br /><br />
       </p>
       <p>
-        Have you travelled?
-        {{ form.has_travelled }}
+        <strong>Have you travelled to any country outside of Singapore, including but not limited to nearby locations such as Johor Bahru, Batam and Bintan, in the past 14 days?</strong><span id="manda">&nbsp;*</span><br /><br />
+        {{ form.has_travelled }}<br /><br />
       </p>
       <p>
-        Are you feeling unwell?
-        {{ form.is_unwell }}
+        <strong>Are you feeling unwell or having any symptoms such as fever, cough, runny nose, sore throat, breathlessness?</strong><span id="manda">&nbsp;*</span><br /><br />
+        {{ form.is_unwell }}<br /><br />
       </p>
     </div>
     <div class="tab">
       <h3>Acknowledgement</h3><br />
       <p>
-        Acknowledge
-        {{ form.acknowledge }}
+        <strong>I acknowledge</strong><span id="manda">&nbsp;*</span>&nbsp;{{ form.acknowledge }}
       </p>
       <p>
-        Date<br />
-        <input type="date" name="reg_date" maxlength="255" required id="id_reg_date"><br /><br />
+        <strong>Date:</strong><span id="manda">&nbsp;*</span><br />
+        <input type="date" name="reg_date" maxlength="255" required id="id_reg_date" onchange="reFresh()"><br /><br />
       </p>
     </div>
     <div style="overflow:auto;">
@@ -108,5 +107,12 @@
         $("#id_purpose").val("N/A");
         $("#id_visit_pass_number").val("N/A");
     });
+
+    function reFresh() {
+      confirm("Review your sumbmtted Information.");
+      window.location.reload();
+    }
+
+
   </script>
 {% endblock %}
